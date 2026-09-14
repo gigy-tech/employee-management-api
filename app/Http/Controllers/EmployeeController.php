@@ -9,9 +9,16 @@ class EmployeeController extends Controller
 {
     // Get all employees
     public function index()
-    {
-        return response()->json(Employee::all());
-    }
+{
+    $employees = Employee::all();
+
+    return response()->json([
+        'success' => true,
+        'count' => $employees->count(),
+        'employees' => $employees
+    ]);
+}
+   
 
     // Create a new employee
     public function store(Request $request)
