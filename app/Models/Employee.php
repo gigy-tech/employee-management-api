@@ -12,5 +12,9 @@ class Employee extends Model
         'phone',
         'department',
         'position',
+        'role',
+        'status',
+        'password',
+        'password_set',
     ];
 }
