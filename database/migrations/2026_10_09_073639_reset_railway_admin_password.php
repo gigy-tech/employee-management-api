@@ -9,8 +9,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $email = strtolower(trim((string) getenv('ADMIN_EMAIL')));
-$password = (string) getenv('ADMIN_PASSWORD');
+               $email = strtolower(trim((string) env('ADMIN_EMAIL')));
+        $password = (string) env('ADMIN_PASSWORD');
 
         if ($email === '' || $password === '') {
             throw new RuntimeException(
@@ -33,7 +33,7 @@ $password = (string) getenv('ADMIN_PASSWORD');
             ->where('email', $email)
             ->where('role', 'admin')
             ->update([
-                'password' => Hash::make($password),
+               'password' => Hash::make($password), 
                 'updated_at' => now(),
             ]);
     }
