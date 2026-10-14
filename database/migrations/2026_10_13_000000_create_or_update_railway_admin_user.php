@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -26,6 +25,7 @@ return new class extends Migration
                 'name' => 'System Administrator',
                 'password' => Hash::make($password),
                 'role' => 'admin',
+                'created_at' => $now,
                 'updated_at' => $now,
             ]
         );
